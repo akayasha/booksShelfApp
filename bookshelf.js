@@ -1,12 +1,13 @@
 function bookForm(){
     var elem = document.getElementById("book");
-    elem.parentElement.removeChild(elem);
+    elem.style.display = "none";
     
     var elem2 = document.getElementById("sub2");
-    elem2.parentElement.removeChild(elem2);
+    elem2.style.display = "none";
     
 
-    var p = document.createElement("p"); 
+    var p = document.createElement("p");
+    p.id = "bookForm"; 
     p.className = "title2";
     p.innerHTML = "BOOK FORM";
 
@@ -15,6 +16,7 @@ function bookForm(){
 
     var container2 = document.createElement("div");
     container2.className = "container align-items-center";
+    container2.id = "bookform";
     element.appendChild(container2);
 
     
@@ -80,7 +82,7 @@ function bookForm(){
     container3.appendChild(input3);
 
     var input_year = document.createElement('input');
-    input_year.type = 'Year';
+    input_year.type = 'number';
     input_year.placeholder = 'Year';
     input_year.className = 'form-control';
     input_year.name = 'AUTHOR';
@@ -97,8 +99,8 @@ function bookForm(){
     container3.appendChild(input4);
 
     var isComplete = document.createElement('input');
-    isComplete.type = 'radio';
-    isComplete.placeholder = 'isComplete';
+    isComplete.type = 'input';
+    isComplete.placeholder = 'is Complete';
     isComplete.style.textAlign = 'center';
     isComplete.className = 'form-control';
     isComplete.style.width = '50%';
@@ -108,4 +110,65 @@ function bookForm(){
     isComplete.name = 'isComplete';
     input4.appendChild(isComplete);
 
+    var submitBtn = document.createElement('div');
+    submitBtn.className = "row-md-4";
+    container3.appendChild(submitBtn);
+
+    var subBtn = document.createElement('button');
+    subBtn.className = "btn btn-primary btn-block";
+    subBtn.type = 'submit';
+    subBtn.style.width = '50%';
+    subBtn.style.marginTop = '50px';
+    subBtn.style.fontSize = '20px';
+    subBtn.style.color = '#FFFFFF';
+    subBtn.style.backgroundColor = '#A7FFE4';
+    subBtn.style.height = '50px';
+    submitBtn.appendChild(subBtn);
+    subBtn.onclick = function sendBook(){
+        elem4 = document.getElementById("bookform");
+        elem5 = document.getElementById("bookForm");
+        elem5.style.display = "none";
+        elem4.style.display = "none";
+
+        window.location.reload(false);
+
+    }
+
 }
+
+function bookShelf(){
+    var elem = document.getElementById("book");
+    elem.style.display = "none";
+    
+    var elem2 = document.getElementById("sub2");
+    elem2.style.display = "none";
+    
+
+    var p = document.createElement("p");
+    p.id = "bookForm"; 
+    p.className = "title2";
+    p.innerHTML = "BOOK SHELF";
+
+    var element = document.getElementsByTagName('div')[0];
+    element.appendChild(p);
+
+    var container2 = document.createElement("div");
+    container2.className = "container align-items-center";
+    container2.id = "bookShelf";
+    element.appendChild(container2);
+
+    var container2 = document.createElement("div");
+    container2.className = "container align-items-center";
+    container2.id = "bookShelf";
+    element.appendChild(container2);
+
+
+    
+
+
+
+}
+
+
+
+
