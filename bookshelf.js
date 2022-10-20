@@ -30,6 +30,7 @@ function bookForm(){
 
     var input_id = document.createElement('input');
     input_id.type = 'text';
+    input_id.id = "id";
     input_id.placeholder = 'Book id';
     input_id.className = 'form-control';
     input_id.name = 'BOOK ID';
@@ -49,6 +50,7 @@ function bookForm(){
 
     var input_book = document.createElement('input');
     input_book.type = 'text';
+    input_book.id = 'book_name';
     input_book.placeholder = 'Book Name';
     input_book.className = 'form-control';
     input_book.name = 'BOOK NAME';
@@ -68,6 +70,7 @@ function bookForm(){
     input_author.type = 'text';
     input_author.placeholder = 'Author';
     input_author.className = 'form-control';
+    input_author.id = 'author';
     input_author.name = 'AUTHOR';
     input_author.style.backgroundColor = '#FBF2CF';
     input_author.style.textAlign = 'center';
@@ -83,6 +86,7 @@ function bookForm(){
 
     var input_year = document.createElement('input');
     input_year.type = 'number';
+    input_year.id = 'year';
     input_year.placeholder = 'Year';
     input_year.className = 'form-control';
     input_year.name = 'AUTHOR';
@@ -98,17 +102,22 @@ function bookForm(){
     input4.className = "row-md-4";
     container3.appendChild(input4);
 
+    
+    var labelCheck = document.createElement('label');
+    input4.appendChild(labelCheck);
+  
+    var spanCheck = document.createElement('span');
+    spanCheck.innerHTML = 'Finish';
+    spanCheck.style.display = 'inline-block';
+    spanCheck.style.padding = '10px';
+    spanCheck.style.fontSize = '20px';
+    labelCheck.appendChild(spanCheck);
+
     var isComplete = document.createElement('input');
-    isComplete.type = 'input';
-    isComplete.placeholder = 'is Complete';
-    isComplete.style.textAlign = 'center';
-    isComplete.className = 'form-control';
-    isComplete.style.width = '50%';
-    isComplete.style.margin = 'auto';
-    isComplete.style.fontSize = '20px';
-    isComplete.style.backgroundColor = '#FBF2CF';
+    isComplete.type = 'checkbox';
+    isComplete.style.display = 'inline-block';
     isComplete.name = 'isComplete';
-    input4.appendChild(isComplete);
+    labelCheck.appendChild(isComplete);
 
     var submitBtn = document.createElement('div');
     submitBtn.className = "row-md-4";
@@ -163,12 +172,34 @@ function bookShelf(){
     element.appendChild(container2);
 
 
-    
-
-
 
 }
 
+const localStorageKey = "BOOKS";
+
+const title = document.querySelector("#inputBookTitle");
+const errorTitle = document.querySelector("#errorTitle");
+const sectionTitle = document.querySelector("#sectionTitle");
+
+const author = document.querySelector("#inputBookAuthor");
+const errorAuthor = document.querySelector("#errorAuthor");
+const sectionAuthor = document.querySelector("#sectionAuthor");
+
+const year = document.querySelector("#inputBookYear");
+const errorYear = document.querySelector("#errorYear");
+const sectionYear = document.querySelector("#sectionYear");
+
+const readed = document.querySelector("#inputBookIsComplete");
+
+const btnSubmit = document.querySelector("#bookSubmit");
+
+const searchValue = document.querySelector("#searchBookTitle");
+const btnSearch = document.querySelector("#searchSubmit");
+
+let checkInput = [];
+let checkTitle = null;
+let checkAuthor = null;
+let checkYear = null;
 
 
 
